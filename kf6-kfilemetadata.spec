@@ -1,6 +1,6 @@
 %define libname %mklibname KF6FileMetaData
 %define devname %mklibname KF6FileMetaData -d
-%define git 20230825
+%define git 20230901
 
 Name: kf6-kfilemetadata
 Version: 5.240.0
