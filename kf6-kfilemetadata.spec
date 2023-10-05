@@ -1,6 +1,6 @@
 %define libname %mklibname KF6FileMetaData
 %define devname %mklibname KF6FileMetaData -d
-%define git 20230927
+%define git 20231005
 
 Name: kf6-kfilemetadata
 Version: 5.240.0
@@ -85,7 +85,6 @@ A library for extracting file metadata
 %files -n %{devname}
 %{_includedir}/KF6/KFileMetaData
 %{_libdir}/cmake/KF6FileMetaData
-%{_qtdir}/mkspecs/modules/qt_KFileMetaData.pri
 %{_qtdir}/doc/KF6FileMetaData.*
 
 %files -n %{libname}
