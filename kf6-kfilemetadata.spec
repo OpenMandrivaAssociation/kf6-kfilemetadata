@@ -1,3 +1,4 @@
+%define major %(echo %{version} |cut -d. -f1-2)
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 %define libname %mklibname KF6FileMetaData
@@ -5,12 +6,12 @@
 #define git 20240217
 
 Name: kf6-kfilemetadata
-Version: 6.0.0
-Release: %{?git:0.%{git}.}3
+Version: 6.1.0
+Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kfilemetadata/-/archive/master/kfilemetadata-master.tar.bz2#/kfilemetadata-%{git}.tar.bz2
 %else
-Source0: https://download.kde.org/%{stable}/frameworks/%{version}/kfilemetadata-%{version}.tar.xz
+Source0: https://download.kde.org/%{stable}/frameworks/%{major}/kfilemetadata-%{version}.tar.xz
 %endif
 Summary: A library for extracting file metadata
 URL: https://invent.kde.org/frameworks/kfilemetadata
