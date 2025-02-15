@@ -6,7 +6,7 @@
 #define git 20240217
 
 Name: kf6-kfilemetadata
-Version: 6.10.0
+Version: 6.11.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kfilemetadata/-/archive/master/kfilemetadata-master.tar.bz2#/kfilemetadata-%{git}.tar.bz2
@@ -90,6 +90,7 @@ A library for extracting file metadata
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kfilemetadata.*
+%{_bindir}/kfilemetadata_dump6
 
 %files -n %{devname}
 %{_includedir}/KF6/KFileMetaData
