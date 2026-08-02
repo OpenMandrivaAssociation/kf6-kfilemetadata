@@ -6,7 +6,7 @@
 #define git 20240217
 
 Name: kf6-kfilemetadata
-Version: 6.27.0
+Version: 6.28.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kfilemetadata/-/archive/master/kfilemetadata-master.tar.bz2#/kfilemetadata-%{git}.tar.bz2
@@ -74,7 +74,7 @@ Development files (Headers etc.) for %{name}.
 A library for extracting file metadata
 
 %prep
-%autosetup -p1 -n kfilemetadata-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n kfilemetadata-6.28.0
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
