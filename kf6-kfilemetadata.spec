@@ -6,8 +6,8 @@
 #define git 20240217
 
 Name: kf6-kfilemetadata
-Version: 6.28.0
-Release: %{?git:0.%{git}.}3
+Version: 6.29.0
+Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kfilemetadata/-/archive/master/kfilemetadata-master.tar.bz2#/kfilemetadata-%{git}.tar.bz2
 %else
@@ -49,6 +49,8 @@ BuildRequires: pkgconfig(exiv2)
 BuildRequires: pkgconfig(poppler-qt6)
 BuildRequires: ebook-tools-devel
 Requires: %{libname} = %{EVRD}
+BuildSystem:	cmake
+BuildOption:	-DBUILD_QCH:BOOL=ON
 # FIXME There's some more file formats supported by extra library
 # requirements. Add them once we've packaged all relevant libraries.
 
@@ -72,21 +74,6 @@ Requires: %{libname} = %{EVRD}
 Development files (Headers etc.) for %{name}.
 
 A library for extracting file metadata
-
-%prep
-%autosetup -p1 -n kfilemetadata-6.28.0
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-
-%find_lang %{name} --all-name --with-qt --with-html
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kfilemetadata.*
